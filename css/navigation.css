@@ -1,0 +1,140 @@
+nav{
+  margin-bottom: 120px;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  gap:20px
+}
+
+nav a{
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  position: relative;
+  padding: 3px;
+}
+nav a:hover{
+  color: var(--default-text-color);
+}
+nav a::after{
+  content:'';
+  height: 2px;
+  width: 0;
+  background-color: var(--main-background-color);
+  position: absolute;
+  bottom: 0;
+  left:0;
+  transition: 150ms ease-in-out;
+}
+
+nav a:hover::after{
+  width: 100%;
+}
+#toggleButton{
+  display: none;
+}
+label[for="toggleButton"]span{
+  font-size: 50px;
+}
+label[for="toggleButton"]{
+  display: none;
+}
+
+@media(max-width:800px){
+  nav{
+    position: absolute;
+    top:0;
+    right: 0;
+    background:var(--secondary-color);
+    padding: 25px;
+    align-self: center;
+  }
+  nav ul{
+    display:none;
+    flex-direction: column;
+  }
+  #toggleButton:checked ~ ul{
+    display: flex;
+  }
+  label[for="toggleButton"]{
+    display: block;
+  }
+}
+
+/*.burgerNav{
+  position: absolute;
+  top:2.5rem;
+  right:2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+
+}
+.burgerNav .burger{
+  height: 3px;
+  width: 100%;
+  background: #fff;
+}
+@media (max-width:480px) {
+ 
+  .burgerNav{
+    display: flex;
+  }
+  .navLinks{
+    width: 100%;
+    display: none;
+    background: #000;
+    position: relative;
+    z-index: 4;
+  }
+  .mainNav{
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+  .navLinks ul{
+    width: 100%;
+    flex-direction: column;
+  }
+  .navLinks li{
+    text-align: center;
+    padding: 0.5rem 1rem;
+  }
+  .navLinks .active{
+    display: flex;
+  }
+ 
+}
+@media (max-width:720px) {
+  
+  .burgerNav{
+    display: flex;
+  }
+  .navLinks{
+    width: 100%;
+    display: none;
+    background: #000;
+  }
+  .mainNav{
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+  .navLinks ul{
+    width: 100%;
+    flex-direction: column;
+  }
+  .navLinks li{
+    text-align: center;
+    padding: 0.5rem 1rem;
+  }
+  .navLinks.active{
+    display: flex;
+    position: relative;
+    z-index: 4;
+  }
+ 
+}*/
+

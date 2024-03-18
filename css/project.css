@@ -1,0 +1,77 @@
+.projects{
+  padding: 100px 0;
+  flex-wrap: wrap;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:50px;
+}
+.projectsContainer{
+  width: 750px;
+  max-width: 90%;
+}
+.p2{
+  flex-direction: row-reverse;
+}
+
+
+
+
+
+
+
+
+
+
+.image.active{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cta{
+  background: var(--main-brand-color);
+  color: var(--default-text-color);
+  
+  height: 36px;
+  width: 100px;
+  text-align: center;
+  border-radius: 12px;
+ 
+
+}
+
+
+.ccta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+}
+
+#carousel {
+  position: relative;
+  overflow: hidden;
+  width: 800px;
+  height: 500px;
+  flex-direction:column;
+  border: 15px solid var(--default-text-color);
+ max-width: calc(80%- 30px);
+  
+  
+}
+
+#carousel .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  
+}
+
+#carousel .image.active {
+  opacity: 1;
+}
