@@ -1,43 +1,45 @@
-const carousel = document.querySelector('#carousel');
+document.addEventListener("DOMContentLoaded", function () {
+  const slideshows = document.querySelectorAll(".carousel");
+  
+  slideshows.forEach(function (slideshow) {
+    const slides = slideshow.querySelectorAll(".image");
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    const prevButton = slideshow.querySelector("#prevBtn");
+    const playPauseButton = slideshow.querySelector("#playPauseBtn");
+    const nextButton = slideshow.querySelector("#nextBtn");
+    let isPlaying = true;
+    let intervalId;
 
-const images = document.querySelectorAll('.image');
-const prevBtn = document.querySelector('#prevBtn');
-const nextBtn = document.querySelector('#nextBtn');
-const playPauseBtn = document.querySelector('#playPauseBtn');
+    function showSlide(n) {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (n + slideCount) % slideCount;
+      slides[currentSlide].classList.add("active");
+    }
 
-let currentIndex = 0;
-let timerId;
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
 
-images[currentIndex].classList.add('active');
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
 
-function showImage(index) {
-  images.forEach(image => image.classList.remove('active'));
-  images[index].classList.add('active');
-}
+    function playPauseSlide() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        playPauseButton.textContent = "Pause";
+        intervalId = setInterval(nextSlide, 3000);
+      } else {
+        playPauseButton.textContent = "Play";
+        clearInterval(intervalId);
+      }
+    }
 
-function prevImage() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showImage(currentIndex);
-}
+    prevButton.addEventListener("click", prevSlide);
+    nextButton.addEventListener("click", nextSlide);
+    playPauseButton.addEventListener("click", playPauseSlide);
 
-function nextImage() {
-  currentIndex = (currentIndex + 1) % images.length;
-  showImage(currentIndex);
-}
-
-function playPause() {
-  if (timerId) {
-    clearInterval(timerId);
-    timerId = null;
-    playPauseBtn.textContent = 'Play';
-  } else {
-    timerId = setInterval(nextImage, 3000);
-    playPauseBtn.textContent = 'Pause';
-  }
-}
-
-prevBtn.addEventListener('click', prevImage);
-nextBtn.addEventListener('click', nextImage);
-playPauseBtn.addEventListener('click', playPause);
-
-timerId = setInterval(nextImage, 3000);
+    intervalId = setInterval(nextSlide, 3000);
+  });
+});
