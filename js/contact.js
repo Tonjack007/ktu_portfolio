@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
       input.addEventListener("blur", function() {
         validateField(input);
       });
-    });
+     });
 
     const validateForm = () => {
       let isValid = true;
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       if (input.id === "postcode") {
-        const postcodeRegex = /^\d{1,4}$/;
+        const postcodeRegex = /^\d{4}$/;
         if (!value.match(postcodeRegex)) {
           input.style.borderColor = "red";
           input.style.backgroundColor = "#ffebeb";
