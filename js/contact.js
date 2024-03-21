@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (input.id === "msg" && value.length < 30) {
         input.style.borderColor = "red";
         input.style.backgroundColor = "#ffebeb";
-        errorDiv.textContent = "Please enter a message with at least 30 characters";
+        errorDiv.textContent = "Es ist minimum 30 Zeichen erforderlich";
         errorDiv.style.fontSize = "16px";
         return false;
       }
@@ -77,3 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
       return true;
     };
   });
+
+
+ 
