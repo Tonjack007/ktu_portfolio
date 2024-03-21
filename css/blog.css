@@ -7,12 +7,34 @@
   gap: 100px;
   flex-wrap: wrap;
 }
+.blogText{
+  max-width: 90%;
+}
 .post img{
   width: 400px;;
 }
 .blogText{width: 750px;
   max-width: 90%;}
+  
+  .titleBlog{
+    font-size: 50px;
+  }
+  .userBlog{
+    font-size: 16px;
+  }
+  .contBlog{
+    font-size: 16px;
+  }
 
-  .blogTitle {
-  font-size: 2rem;
+@media(max-width:800px){
+  .post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .titleBlog{
+    font-size: 30px;
+  }
+
 }

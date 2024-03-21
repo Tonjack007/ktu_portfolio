@@ -2,24 +2,20 @@
 getData();
 
 async function getData() {
-  const response = await fetch('data/blog.json');
-  const data = await response.json();
-
-displayPosts(data);
-}
-/*async function getData() {
   try {
       const response = await fetch("data/blog.json");
-      if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+      if (!response.ok){
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      writePosts(data);
-  } catch (error) {
-      console.error("Failed to fetch blog posts:", error);
-  }
+
+      displayPosts(data);
+} catch(error){
+  console.error("Failed to fetch blog posts:", error);
 }
-displayPosts(data);*/
+}
+
+
 
 
 function displayPosts(data) {
@@ -28,10 +24,15 @@ function displayPosts(data) {
     div.classList.add('post');
     const template = ` 
     <img class="blogImg"src="${post.image}">
-    <div class="blogText"
-    <h3 class="blogTitle">${post.title}</h3>
+    
+    <div class="blogText">
+    <br>
+    <h3 class="titleBlog">${post.title}</h3>
+    <br>
     <p class="userBlog">${post.userName}</p>
+    <br>
     <p class="contBlog">${post.content}</p>
+    <br>
     <div class="divBlogTag">${post.Tags}</div> 
     </div>
     `
